@@ -1,0 +1,11 @@
+services:
+    tomcat-server:
+        image: tomcat:jre21
+        volumes:
+            - ./tienda:/usr/local/tomcat/webapps/tienda
+        ports:
+            - 8080:8080
+        command:
+            - "/bin/sh"
+            - "-c"
+            - "catalina.sh run"
