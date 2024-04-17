@@ -1,3 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<web-app></web-app>
+<web-app>
+
+    <servlet>
+        <servlet-name>carrito</servlet-name>
+    </servlet>
+
+</web-app>
