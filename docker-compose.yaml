@@ -1,12 +1,12 @@
 services:
     tomcat-server:
-        image: tomcat:9.0-jdk8
-        volumes:
-            - ./tienda:/usr/local/tomcat/webapps/tienda
-            - ./context.xml:/usr/local/tomcat/conf/context.xml
-        ports:
-            - 8080:8080
-        command:
-            - "/bin/sh"
-            - "-c"
-            - "catalina.sh run"
+      build:
+        context: .
+        dockerfile: Dockerfile
+      volumes:
+          - ./tienda/index.html:/usr/local/tomcat/webapps/tienda/index.html
+          - ./tienda/images:/usr/local/tomcat/webapps/tienda/images
+          - ./tienda/styles:/usr/local/tomcat/webapps/tienda/styles
+          - ./context.xml:/usr/local/tomcat/conf/context.xml
+      ports:
+          - 8080:8080

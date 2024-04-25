@@ -3,7 +3,13 @@
 <web-app>
 
     <servlet>
-        <servlet-name>carrito</servlet-name>
+        <servlet-name>CarritoCompra</servlet-name>
+        <servlet-class>CarritoCompra</servlet-class>
     </servlet>
+
+    <servlet-mapping>
+        <servlet-name>CarritoCompra</servlet-name>
+        <url-pattern>/miformulario</url-pattern>
+    </servlet-mapping>
 
 </web-app>
