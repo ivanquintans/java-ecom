@@ -1,15 +1,22 @@
 public class Item {
 
     private String name;
-    private Float price;
+    private int cantidad;
+
+    //constructor de item
+
+    public Item (String name, int cantidad){
+        this.name = name;
+        this.cantidad = cantidad;
+    }
 
     //setters
     public void setName(String name){
         this.name = name;
     }
 
-    public void setPrice(Float price){
-        this.price = price;
+    public void setCantidad(int cantidad){
+        this.cantidad = cantidad;
     }
 
     //getters
@@ -18,8 +25,8 @@ public class Item {
         return this.name;
     }
 
-    public Float getPrice(){
-        return this.price;
+    public int getCantidad(){
+        return this.cantidad;
     }
 }
 

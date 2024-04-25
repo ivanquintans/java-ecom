@@ -1,40 +1,40 @@
 import java.util.ArrayList;;
 
 public class Carrito {
-    private ArrayList<Item> carrito;
+    private ArrayList<Item> listItems;
+
+    //constructor
+
+    public Carrito(){
+        this.listItems = new ArrayList<>();
+    }
 
     //setters
-    
     public void setCarrito(ArrayList<Item> carrito){
-        this.carrito = carrito;
+        this.listItems = carrito;
     }
 
     //getters 
     public ArrayList<Item> getCarrito(){
-        return this.carrito;
+        return this.listItems;
     }
 
     //metodos utiles
 
-    public void addItem(String name, Float price){
-        Item item = new Item();
-        item.setName(name);
-        item.setPrice(price);
-        this.carrito.add(item);
-
-
+    public void addItem(String name, int cantidad){
+        this.listItems.add(new Item(name, cantidad));
     }
 
     public boolean removeItem(Item item){
-        if (this.carrito.contains(item)) {
-            this.carrito.remove(item);
+        if (this.listItems.contains(item)) {
+            this.listItems.remove(item);
             return true;
         }
         return false;
      }
+     //recorremos todos los elmentos del carrito y los eliminamos
 
     public void removeCarrito(){
-        //recorremos todos los elmentos del carrito y los eliminamos
-        this.carrito.removeAll(carrito);
+        this.listItems.removeAll(listItems);
     }
 }
