@@ -6,7 +6,6 @@ import javax.servlet.http.*;;
 public class CarritoCompra extends HttpServlet{
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException{
-
         // Pillamos los datos del cd seleccionado
         String currentCD = request.getParameter("cd");
         int cantidad = Integer.parseInt(request.getParameter("cantidad"));
