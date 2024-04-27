@@ -22,6 +22,7 @@ public class Carrito {
     //metodos utiles
 
     public void addItem(String name, int cantidad){
+        //TODO: funcion encargada de parsear las cosas, para que se pase el precio del item al parsear el nombre
         //si el item ya existe en el arraylist, simplemente aumentamos la cantidad del item
         int flag = 0;
         for (Item item : this.listItems){
@@ -52,7 +53,6 @@ public class Carrito {
                 }
             }
         }
-
     }
 
     public boolean removeItem(Item item){
