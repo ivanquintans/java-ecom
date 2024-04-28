@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?> 
 
 <web-app>
 
@@ -9,7 +9,7 @@
 
     <servlet-mapping>
         <servlet-name>CarritoCompra</servlet-name>
-        <url-pattern>/miformulario</url-pattern>
+        <url-pattern>/CarritoCompra</url-pattern>
     </servlet-mapping>
 
 </web-app>

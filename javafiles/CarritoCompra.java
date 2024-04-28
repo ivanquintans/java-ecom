@@ -23,21 +23,12 @@ public class CarritoCompra extends HttpServlet{
         // Agregar el artículo al carrito de la compra
         carrito.addItem(currentCD, cantidad);
 
-       // Imprimir el contenido del carrito en la salida del servlet
-        response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
-        out.println("<html><head><title>Contenido del Carrito</title></head><body>");
-        out.println("<h1>Contenido del Carrito</h1>");
-        out.println("<ul>");
-        for (Item item : carrito.getCarrito()) {
-            out.println("<li>" + item.getName() + " (Cantidad: " + item.getCantidad() + ")</li>");
-        }
-        out.println("</ul>");
-        out.println("<a href='index.html'>Volver al inicio</a>");
-        out.println("</body></html>"); 
-
-
-    } 
-
+        //hacemos el include a la pagina jsp para poder acceder despues a ella con los valores adecuados
+        request.getRequestDispatcher("/carrito.jsp").include(request, response);
+    }
+    
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException{
+        request.getRequestDispatcher("/carrito.jsp").forward(request, response);
+    }
 
 }
