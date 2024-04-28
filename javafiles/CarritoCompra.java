@@ -23,12 +23,15 @@ public class CarritoCompra extends HttpServlet{
         // Agregar el artículo al carrito de la compra
         carrito.addItem(currentCD, cantidad);
 
-        //hacemos el include a la pagina jsp para poder acceder despues a ella con los valores adecuados
-        request.getRequestDispatcher("/carrito.jsp").include(request, response);
+        //redirigimos de vuelta el usuario a la pagina index.html
+        response.sendRedirect("index.html?itemAdded=true");
+
     }
     
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException{
-        request.getRequestDispatcher("/carrito.jsp").forward(request, response);
+        // Incluir la página del carrito
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/carrito.jsp");
+        dispatcher.include(request, response);
     }
 
 }

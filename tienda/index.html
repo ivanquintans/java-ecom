@@ -1,12 +1,23 @@
+  <!DOCTYPE html>
   <html>
     <head>
       <title>Musica para DAA</title>
+      <script>
+        // Funcion que muestra una alerta si en el url se encuentra el valor itemAdded=true
+        function mostrarAlerta() {
+            var urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.has('itemAdded')) {
+                alert('El articulo ha sido procesado correctamente en el carrito');
+            }
+        }
+    </script>
     </head>
-    <body bgcolor="#FDF5E6">
+    <body onload= "mostrarAlerta()" bgcolor="#FDF5E6">
+
       <table align="center" border="0">
 	<tr> 
 	  <th><IMG SRC="" ALIGN="CENTER"></th>
-	  <th><font face="Times New Roman,Times" size="+3">Masica para DAW</font></th>
+	  <th><font face="Times New Roman,Times" size="+3">Musica para DAW</font></th>
 	  <th><IMG SRC="" ALIGN="CENTER"></th>
 	</tr>
       </table>
@@ -15,7 +26,7 @@
 	  <center>
 	    <form action="CarritoCompra" method="post"> 
 	      <b>CD:</b> 
-	      <select name= "cd">
+	      <select name= "cd"> 
 		<option>Yuan | The Guo Brothers | China | $14.95</option>
 		<option>Drums of Passion | Babatunde Olatunji | Nigeria | $16.95</option>
 		<option>Kaira | Tounami Diabate| Mali | $16.95</option>
@@ -31,11 +42,11 @@
 	      <input type="text" name="cantidad" value="1">
 		<p>
 		  <center>
-		    <input type="submit" value="Añadir Producto">
-          </center>
+		    <input type="submit" value="Introducir Producto">
 	    </form>
         <!-- Enlace para ver el carrito -->
-        <a href="CarritoCompra">Ver carrito</a>
+            <a href="CarritoCompra">Ver carrito</a>
+        </center>
 	  </center>
 	  <hr>
     </body>
