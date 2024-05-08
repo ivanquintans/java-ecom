@@ -6,22 +6,16 @@ import javax.servlet.http.*;
 public class CarritoCompra extends HttpServlet{
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException{
-
         //selecionamos la accion que es para saber si tenemos que eliminar o añadir
         String action = request.getParameter("action");
-
         // Obtenemos la sesion actual del usuario para que el carrito sea el adecuado y no se comparta
         HttpSession session = request.getSession();
         
         // si viene del formulario de eliminar
         if (action.equals("eliminar")) {
-
             Carrito carrito = (Carrito) session.getAttribute("carrito");
-            
             //Obtenemos los valores provenientes de la checkbox
             String[] itemsAEliminar = request.getParameterValues("itemsAEliminar");
-
-            //Eliminamos los elementos del carrito
 
             //itemsAEliminar contiene los nombres de los cds a eliminar
             if (itemsAEliminar != null && itemsAEliminar.length > 0) {
@@ -29,12 +23,10 @@ public class CarritoCompra extends HttpServlet{
                     carrito.removeItem(item); // Suponiendo que el método eliminarItem elimina el ítem del carrito en la posición especificada.
                 }
             }
-            //una vez eliminados los elementos,actualizamos el carrito en la sesion
-
             //cargamos de nuevo el jsp asociado
-
             response.sendRedirect("CarritoCompra");
 
+            
         } else if (action.equals("anadir")) { // en caso de que venga del formulario de añadir
 
             // Pillamos los datos del cd seleccionado

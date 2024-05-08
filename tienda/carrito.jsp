@@ -19,7 +19,17 @@
         th, td {
             padding: 10px;
         }
-        a{  
+        a {  
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff; 
+            color: #fff; 
+            text-decoration: none; 
+            border: none; 
+            border-radius: 5px;
+            cursor: pointer; 
+        }
+        div{
             display: block;
             text-align: center;
         }
@@ -74,7 +84,10 @@
             </tr>
         </tbody>
     </table>
-    <a href='index.html'>Volver a la seleccion de CDs</a>
-    <a href='Pago'>Pagar</a>
+    <div>
+        <a href='index.html'>Volver a la seleccion de CDs</a>
+        <a href='Pago'>Pagar</a>
+    </div>
+    
 </body>
 </html>

@@ -15,6 +15,30 @@
             margin: auto;
             margin-top: 20px; 
         }
+
+        .mensajePago {
+            background-color: aqua;
+            color: black;
+            padding: 10px;
+            text-align: center;
+            border: 2px solid blue;
+            border-radius: 10px;
+            width: 50%;
+            margin: auto;
+            margin-top: 20px; 
+        }
+
+        a, #miBoton{
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff; 
+            color: white; 
+            text-decoration: none; 
+            border: none; 
+            border-radius: 5px;
+            cursor: pointer; 
+        }
+
       </style>
       <script>
         // Funcion que muestra una alerta si en el url se encuentra el valor itemAdded=true
@@ -29,12 +53,23 @@
                 // Ocultar el mensaje después de 5 segundos (5000 milisegundos)
                 setTimeout(function() {
                     mensajeDiv.style.display = 'none';
+                }, 1000);
+
+            }else if (urlParams.has('PagoEfectuado')) {
+                var mensajeDiv = document.createElement("div");
+                mensajeDiv.className = "mensajePago";
+                mensajeDiv.innerHTML = "¡El artículo se ha añadido al carrito!";
+                document.body.appendChild(mensajeDiv);
+
+                // Ocultar el mensaje después de 5 segundos (5000 milisegundos)
+                setTimeout(function() {
+                    mensajeDiv.style.display = 'none';
                 }, 5000);
             }
         }
     </script>
     </head>
-    <body onload= "mostrarAlerta()" bgcolor="#FDF5E6">
+    <body onload= "mostrarAlerta()" >
 
       <table align="center" border="0">
 	<tr> 
@@ -65,7 +100,7 @@
 	      <input type="text" name="cantidad" value="1">
 		<p>
 		  <center>
-		    <input type="submit" value="Introducir Producto">
+		    <input type="submit" id="miBoton" value="Introducir Producto">
 	    </form>
         <!-- Enlace para ver el carrito -->
             <a href="CarritoCompra">Ver carrito</a>
