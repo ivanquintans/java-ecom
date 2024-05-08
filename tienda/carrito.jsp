@@ -5,6 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
     <title>Carrito de Compras</title>
     <style>
         h2{
@@ -41,11 +42,7 @@
                 <tr>
                     <td>${item.getName()}</td>
                     <td>
-                        <form action="actualizarCantidad" method="post">
-                            <input type="submit" name="accion" value="-" /> <!-- Botón para disminuir la cantidad -->
-                            <c:out value="${item.getCantidad()}" /> <!-- Mostrar la cantidad actual -->
-                            <input type="submit" name="accion" value="+" /> <!-- Botón para aumentar la cantidad -->
-                        </form> 
+                        <c:out value="${item.getCantidad()}" /> <!-- Mostrar la cantidad actual -->  
                     </td>
                     <td><fmt:formatNumber value="${item.getCantidad() * item.getPrice()}" maxFractionDigits="2" /></td>
                 </tr>
@@ -67,5 +64,6 @@
         </tbody>
     </table>
     <a href='index.html'>Volver a la seleccion de CDs</a>
+    <a href='Pago'>Pagar</a>
 </body>
 </html>

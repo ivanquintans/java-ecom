@@ -12,4 +12,13 @@
         <url-pattern>/CarritoCompra</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>Pago</servlet-name>
+        <servlet-class>Pago</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Pago</servlet-name>
+        <url-pattern>/Pago</url-pattern>
+    </servlet-mapping>
+
 </web-app>
