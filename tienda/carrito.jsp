@@ -48,7 +48,7 @@
                             <c:out value="${item.getCantidad()}" />   
                         </td>
                         <td><fmt:formatNumber value="${item.getCantidad() * item.getPrice()}" maxFractionDigits="2" /></td>
-                        <td><input type="checkbox" name="itemsAEliminar" value="${itemloop.index}" /></td>
+                        <td><input type="checkbox" name="itemsAEliminar" value="${item.getName()}" /></td>
                     </tr>
                 </c:forEach>
                 <tr>

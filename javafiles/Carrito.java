@@ -1,4 +1,5 @@
-import java.util.ArrayList;;
+import java.util.ArrayList;
+import java.util.Iterator;;
 
 public class Carrito {
     private ArrayList<Item> listItems;
@@ -38,29 +39,18 @@ public class Carrito {
         }
     }
 
-    //aumentar cantidad o reducir de un elemento dado
-    public void changeCantidad(String name,boolean aumentar){
-        //iteramos los items, hasta encontrar que item es
-        for (Item item : this.listItems){
-            if (item.getName().equals(name)){
-                //dependiendo si hay que aumentar o reducit
-                int stock = item.getCantidad();
-                if (aumentar){
-                    item.setCantidad(stock +1 );
-                }else{
-                    item.setCantidad(stock-1);
-                }
+    public void removeItem(String name){
+        Iterator<Item> iterador = this.getCarrito().iterator();
+        while (iterador.hasNext()) {
+            Item item = iterador.next();
+            if (item.getName().equals(name)) { 
+                iterador.remove(); 
+                break; 
             }
         }
     }
 
-    public boolean removeItem(Item item){
-        if (this.listItems.contains(item)) {
-            this.listItems.remove(item);
-            return true;
-        }
-        return false;
-     }
+
      //recorremos todos los elmentos del carrito y los eliminamos
 
     public void removeCarrito(){
