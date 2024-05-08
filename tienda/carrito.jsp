@@ -27,30 +27,41 @@
 </head>
 <body>
     <h2>Carrito de Compras</h2>
-    <table border="1">
-        <thead>
-            <tr>
-                <th>Nombre</th>
-                <th>Cantidad</th>
-                <th>Importe Total</th>
-            </tr>
-        </thead>
-        <tbody>
-            <c:set var="total" value="0" />
-            <c:forEach items="${carrito.getCarrito()}" var="item">
-                <c:set var="total" value="${total + item.getCantidad() * item.getPrice()}" />
+    <form action="CarritoCompra" method="post">
+        <input type="hidden" name="action" value="eliminar">
+        <table border="1">
+            <thead>
                 <tr>
-                    <td>${item.getName()}</td>
-                    <td>
-                        <c:out value="${item.getCantidad()}" /> <!-- Mostrar la cantidad actual -->  
-                    </td>
-                    <td><fmt:formatNumber value="${item.getCantidad() * item.getPrice()}" maxFractionDigits="2" /></td>
+                    <th>Nombre</th>
+                    <th>Cantidad</th>
+                    <th>Importe Total</th>
+                    <th>Eliminar</th>
                 </tr>
-            </c:forEach>
-        </tbody>
-    <!-- Guardar el valor total del carrito en la sesión para poder mostrarlo en la ventana de pagar-->
-    <c:set var="totalCarrito" value="${total}" scope="session" />
-    </table>
+            </thead>
+            <tbody>
+                <c:set var="total" value="0" />
+                <c:forEach items="${carrito.getCarrito()}" var="item" varStatus="itemloop">
+                    <c:set var="total" value="${total + item.getCantidad() * item.getPrice()}" />
+                    <tr>
+                        <td>${item.getName()}</td>
+                        <td>
+                            <c:out value="${item.getCantidad()}" />   
+                        </td>
+                        <td><fmt:formatNumber value="${item.getCantidad() * item.getPrice()}" maxFractionDigits="2" /></td>
+                        <td><input type="checkbox" name="itemsAEliminar" value="${itemloop.index}" /></td>
+                    </tr>
+                </c:forEach>
+                <tr>
+                    <td colspan="3"></td> <!-- celdas vacias -->
+                    <td> 
+                        <button type="submit">Eliminar</button>
+                    </td>
+                </tr>
+            </tbody>
+        <!-- Guardar el valor total del carrito en la sesión para poder mostrarlo en la ventana de pagar-->
+        <c:set var="totalCarrito" value="${total}" scope="session" />
+        </table>
+    </form>
     <table border="1">
         <thead>
             <tr>
