@@ -2,12 +2,33 @@
   <html>
     <head>
       <title>Musica para DAA</title>
+      <style>
+        .mensaje {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            border: 2px solid #4CAF50;
+            border-radius: 10px;
+            width: 50%;
+            margin: auto;
+            margin-top: 20px; 
+        }
+      </style>
       <script>
         // Funcion que muestra una alerta si en el url se encuentra el valor itemAdded=true
         function mostrarAlerta() {
             var urlParams = new URLSearchParams(window.location.search);
             if (urlParams.has('itemAdded')) {
-                alert('El articulo ha sido procesado correctamente en el carrito');
+                var mensajeDiv = document.createElement("div");
+                mensajeDiv.className = "mensaje";
+                mensajeDiv.innerHTML = "¡El artículo se ha añadido al carrito!";
+                document.body.appendChild(mensajeDiv);
+
+                // Ocultar el mensaje después de 5 segundos (5000 milisegundos)
+                setTimeout(function() {
+                    mensajeDiv.style.display = 'none';
+                }, 5000);
             }
         }
     </script>

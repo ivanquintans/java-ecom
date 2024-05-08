@@ -1,12 +1,33 @@
 services:
-    tomcat-server:
-      build:
-        context: .
-        dockerfile: Dockerfile
-      volumes:
-          - ./tienda/index.html:/usr/local/tomcat/webapps/tienda/index.html
-          - ./tienda/images:/usr/local/tomcat/webapps/tienda/images
-          - ./tienda/styles:/usr/local/tomcat/webapps/tienda/styles
-          - ./context.xml:/usr/local/tomcat/conf/context.xml
-      ports:
-          - 8080:8080
+  tomcat-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+        - ./tienda/index.html:/usr/local/tomcat/webapps/tienda/index.html
+        - ./tienda/images:/usr/local/tomcat/webapps/tienda/images
+        - ./tienda/styles:/usr/local/tomcat/webapps/tienda/styles
+        - ./context.xml:/usr/local/tomcat/conf/context.xml
+    restart: always
+    depends_on: 
+        - postgres-db
+    ports:
+        - 8080:8080
+
+  postgres-db:
+    image: postgres
+    environment:
+      POSTGRES_USER: www-data
+      POSTGRES_PASSWORD: tienda
+      POSTGRES_DB: tienda
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ./000_init.sql:/docker-entrypoint-initdb.d/000_init.sql
+    restart: always
+
+volumes: 
+  postgres-data:
+    driver: local
+
+  
+      
