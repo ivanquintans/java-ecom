@@ -19,7 +19,7 @@
         th, td {
             padding: 10px;
         }
-        a {  
+        a, #pago {  
             padding: 10px 20px;
             background-color: #007bff; 
             color: #fff; 
@@ -27,20 +27,6 @@
             border: none; 
             border-radius: 5px;
             cursor: pointer; 
-        }
-        #pago {  
-            display: inline;
-            padding: 10px 20px;
-            background-color: #007bff; 
-            color: #fff; 
-            text-decoration: none; 
-            border: none; 
-            border-radius: 5px;
-            cursor: pointer; 
-        }
-        div{
-            display: block;
-            text-align: center;
         }
     </style>
 </head>
@@ -60,11 +46,11 @@
             </tr>
         </tbody>
     </table>
-    <div>
-        <a href='CarritoCompra'>Volver al carrito</a>
-        <form action='Pago' method='post'> 
-            <input type='submit' id="pago" value='Pagar' /> 
-        </form>
-    </div>
+    <form action='Pago' method='post'> 
+        <center>
+            <a href='CarritoCompra'>Volver al carrito</a>
+            <input type='submit' id="pago" value='Pagar' />  
+        </center>
+    </form>
 </body>
 </html>
