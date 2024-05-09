@@ -10,5 +10,5 @@ CREATE TABLE IF NOT EXISTS users (
 CREATE TABLE IF NOT EXISTS orders (
     id SERIAL PRIMARY KEY,
     user_email VARCHAR(255) NOT NULL REFERENCES users(email),
-    amount INT NOT NULL
+    amount FLOAT NOT NULL
 );

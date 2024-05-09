@@ -35,8 +35,8 @@ public class DAOOrders {
 
     //Mostramos al usuario el valor del precio total de su pedido
 
-    public Integer showOrder(String email) { //con el email del usuario obtenemos el pedido con indice mas alto 
-        Integer orderamount = 0;
+    public Float showOrder(String email) { //con el email del usuario obtenemos el pedido con indice mas alto 
+        Float orderamount = 0f;
          //intentamos la conexión con la base de datos
          try (Connection conexion = ConnectionManager.getConnection()) {
            // Creamos la consulta SQL parametrizada para evitar posibles ataques de inyección SQL
@@ -50,8 +50,7 @@ public class DAOOrders {
                 // Si se encuentra algún resultado
                 if (rs.next()) {
                     // Obtenemos el valor de amount de la fila
-                    String amountString = rs.getString("amount");
-                    orderamount = Integer.parseInt(amountString);
+                    orderamount = rs.getFloat("amount");
                 }
             }
     
