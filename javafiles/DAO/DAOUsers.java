@@ -20,9 +20,9 @@ public class DAOUsers {
 
         try (Connection conexion = ConnectionManager.getConnection()) {
 
-            // Verificamos si ya existe un usuario con ese email
-            if (userExists(conexion, email)) {
-                System.out.println("El email introducido ya existe en la base de datos.");
+            // Verificamos si ya existe un usuario con ese email y esa contraseña
+            if (userExists(email,password)) {
+                System.out.println("El email y la contraseñas introducidos ya existen en la base de datos.");
                 return false;
             }
            // Creamos la consulta SQL parametrizada
@@ -93,16 +93,23 @@ public class DAOUsers {
     }
 
     // Método que comprueba si existe un  usuario en la base de datos
-    private boolean userExists(Connection conexion, String userEmail) throws SQLException {
-        String sql = "SELECT COUNT(*) AS total FROM " + nombre_tabla + " WHERE user_email = ?";
-        try (PreparedStatement stmt = conexion.prepareStatement(sql)) {
-            stmt.setString(1, userEmail);
-            ResultSet rs = stmt.executeQuery();
-            if (rs.next()) {
-                int total = rs.getInt("total");
-                //si el total es mayor que 0, el usuario existe
-                return total > 0;
+    public boolean userExists(String userEmail, String password){
+         //intentamos la conexión con la base de datos
+         try (Connection conexion = ConnectionManager.getConnection()) {
+            String sql = "SELECT COUNT(*) AS total FROM " + nombre_tabla + " WHERE user_email = ? AND user_password = ?";
+            try (PreparedStatement stmt = conexion.prepareStatement(sql)) {
+                stmt.setString(1, userEmail);
+                ResultSet rs = stmt.executeQuery();
+                if (rs.next()) {
+                    int total = rs.getInt("total");
+                    //si el total es mayor que 0, el usuario existe
+                    return total > 0;
+                }
             }
+        
+        } catch (SQLException e) {
+            System.err.println("Error en la ejecución de la sentencia" + e.getMessage());
+            e.printStackTrace();
         }
         return false;
     }

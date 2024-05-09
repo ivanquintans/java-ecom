@@ -3,12 +3,12 @@
 <web-app>
 
     <servlet>
-        <servlet-name>CarritoCompra</servlet-name>
+        <servlet-name>Carrito</servlet-name>
         <servlet-class>controller.CarritoServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>CarritoCompra</servlet-name>
+        <servlet-name>Carrito</servlet-name>
         <url-pattern>/CarritoServlet</url-pattern>
     </servlet-mapping>
 
@@ -19,6 +19,16 @@
     <servlet-mapping>
         <servlet-name>Pago</servlet-name>
         <url-pattern>/PagoServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Users</servlet-name>
+        <servlet-class>controller.UserServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Users</servlet-name>
+        <url-pattern>/UserServlet</url-pattern>
     </servlet-mapping>
 
 </web-app>
