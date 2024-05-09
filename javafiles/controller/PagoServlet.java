@@ -7,9 +7,10 @@ import javax.servlet.http.*;
 
 import modelos.Carrito; 
 
-public class Pago extends HttpServlet {
+public class PagoServlet extends HttpServlet {
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException{
+        //si el usuario quiere pagar en primer lugar debemos de hacer el login de este para que pueda pagar
         
         //si el usuario paga borro todo el carrito de la sesiión y lo mandamos a la página de inicio
         HttpSession session = request.getSession();
@@ -18,6 +19,7 @@ public class Pago extends HttpServlet {
             carrito.removeCarrito();
         }
         session.removeAttribute("carrito");
+        //lo mandamos a la pagina de inicio
         response.sendRedirect("index.html?PagoEfectuado=true");
     }
     

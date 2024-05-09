@@ -46,9 +46,9 @@
             </tr>
         </tbody>
     </table>
-    <form action='Pago' method='post'> 
+    <form action='PagoServlet' method='post'> 
         <center>
-            <a href='CarritoCompra'>Volver al carrito</a>
+            <a href='CarritoServlet'>Volver al carrito</a>
             <input type='submit' id="pago" value='Pagar' />  
         </center>
     </form>

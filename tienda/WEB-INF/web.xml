@@ -4,21 +4,21 @@
 
     <servlet>
         <servlet-name>CarritoCompra</servlet-name>
-        <servlet-class>controller.CarritoCompra</servlet-class>
+        <servlet-class>controller.CarritoServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
         <servlet-name>CarritoCompra</servlet-name>
-        <url-pattern>/CarritoCompra</url-pattern>
+        <url-pattern>/CarritoServlet</url-pattern>
     </servlet-mapping>
 
     <servlet>
         <servlet-name>Pago</servlet-name>
-        <servlet-class>controller.Pago</servlet-class>
+        <servlet-class>controller.PagoServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Pago</servlet-name>
-        <url-pattern>/Pago</url-pattern>
+        <url-pattern>/PagoServlet</url-pattern>
     </servlet-mapping>
 
 </web-app>

@@ -37,7 +37,7 @@
 </head>
 <body>
     <h2>Carrito de Compras</h2>
-    <form action="CarritoCompra" method="post">
+    <form action="CarritoServlet" method="post">
         <input type="hidden" name="action" value="eliminar">
         <table border="1">
             <thead>
@@ -86,7 +86,7 @@
     </table>
     <div>
         <a href='index.html'>Volver a la seleccion de CDs</a>
-        <a href='Pago'>Pagar</a>
+        <a href='PagoServlet'>Pagar</a>
     </div>
     
 </body>

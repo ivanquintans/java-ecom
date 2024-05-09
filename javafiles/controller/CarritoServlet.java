@@ -6,7 +6,7 @@ import modelos.Carrito;
 import javax.servlet.*;
 import javax.servlet.http.*; 
 
-public class CarritoCompra extends HttpServlet{
+public class CarritoServlet extends HttpServlet{
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException{
         //selecionamos la accion que es para saber si tenemos que eliminar o añadir
@@ -27,7 +27,7 @@ public class CarritoCompra extends HttpServlet{
                 }
             }
             //cargamos de nuevo el jsp asociado
-            response.sendRedirect("CarritoCompra");
+            response.sendRedirect("CarritoServlet");
 
             
         } else if (action.equals("anadir")) { // en caso de que venga del formulario de añadir
