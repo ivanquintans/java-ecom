@@ -57,9 +57,14 @@
 
             }else if (urlParams.has('PagoEfectuado')) {
                 var mensajeDiv = document.createElement("div");
+                //var imagen = document.createElement("div");
                 mensajeDiv.className = "mensajePago";
-                mensajeDiv.innerHTML = "¡El artículo se ha añadido al carrito!";
+                mensajeDiv.innerHTML = "¡El pago se ha efectuado de manera exitosa!";
+                //imagen.className = "imagen";
+                //metemos de background del div la foto que queramos
                 document.body.appendChild(mensajeDiv);
+                //document.body.appendChild(imagen);
+                
 
                 // Ocultar el mensaje después de 5 segundos (5000 milisegundos)
                 setTimeout(function() {
