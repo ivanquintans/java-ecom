@@ -99,6 +99,7 @@ public class DAOUsers {
             String sql = "SELECT COUNT(*) AS total FROM " + nombre_tabla + " WHERE user_email = ? AND user_password = ?";
             try (PreparedStatement stmt = conexion.prepareStatement(sql)) {
                 stmt.setString(1, userEmail);
+                stmt.setString(2, password);
                 ResultSet rs = stmt.executeQuery();
                 if (rs.next()) {
                     int total = rs.getInt("total");

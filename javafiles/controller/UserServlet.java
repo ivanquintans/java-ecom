@@ -21,14 +21,13 @@ public class UserServlet extends HttpServlet{
         boolean loggedIn = dao.userExists(userEmail, password);
         
         if (loggedIn) {
-
             // Si el usuario existe lo logueamos y lo guardamos en la sesión
             User user = new User(userEmail, password);
             user = dao.loginUser(user);
             //guardamos el usuario en la sesión
             HttpSession session = request.getSession();
             session.setAttribute("user", user);
-            
+
             //despues de esto realizamos la confirmación de la compra
             response.sendRedirect("confirmar_compra.jsp");
         } else {
@@ -37,7 +36,12 @@ public class UserServlet extends HttpServlet{
             request.setAttribute("password",  password);
             request.getRequestDispatcher("registro.jsp").forward(request, response);
         }
+    }
 
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException{
+        // Incluir la página del carrito
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/login.jsp");
+        dispatcher.include(request, response);
     }
     
 

@@ -19,7 +19,8 @@
         th, td {
             padding: 10px;
         }
-        a, #pago {  
+        a {  
+            display: inline-block;
             padding: 10px 20px;
             background-color: #007bff; 
             color: #fff; 
@@ -27,6 +28,10 @@
             border: none; 
             border-radius: 5px;
             cursor: pointer; 
+        }
+        div{
+            display: block;
+            text-align: center;
         }
     </style>
 </head>
@@ -46,11 +51,9 @@
             </tr>
         </tbody>
     </table>
-    <form action='PagoServlet' method='post'> 
-        <center>
-            <a href='CarritoServlet'>Volver al carrito</a>
-            <input type='submit' id="pago" value='Pagar' />  
-        </center>
-    </form>
+    <div>
+        <a href='index.html'>Volver a la seleccion de CDs</a>
+        <a href='UserServlet'>Pago</a>
+    </div>
 </body>
 </html>
