@@ -96,7 +96,7 @@ public class DAOUsers {
     public boolean userExists(String userEmail, String password){
          //intentamos la conexión con la base de datos
          try (Connection conexion = ConnectionManager.getConnection()) {
-            String sql = "SELECT COUNT(*) AS total FROM " + nombre_tabla + " WHERE user_email = ? AND user_password = ?";
+            String sql = "SELECT COUNT(*) AS total FROM " + nombre_tabla + " WHERE email = ? AND contraseña = ?";
             try (PreparedStatement stmt = conexion.prepareStatement(sql)) {
                 stmt.setString(1, userEmail);
                 stmt.setString(2, password);

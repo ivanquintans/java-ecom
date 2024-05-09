@@ -8,7 +8,7 @@ COPY ./javafiles ./webapps/tienda/javafiles
 
 WORKDIR /usr/local/tomcat/webapps/tienda
 RUN mkdir -p ./WEB-INF/classes
-RUN javac -cp ./WEB-INF/lib/servlet-api.jar -d ./WEB-INF/classes ./javafiles/**/*.java 
+RUN javac -cp ./WEB-INF/lib/servlet-api.jar:./WEB-INF/lib/postgresql-42.7.3.jar -d ./WEB-INF/classes ./javafiles/**/*.java 
 
 WORKDIR /usr/local/tomcat
 EXPOSE 8080
