@@ -2,7 +2,7 @@
 CREATE TABLE IF NOT EXISTS users (
     email VARCHAR(255) NOT NULL PRIMARY KEY,
     contraseña VARCHAR(255) NOT NULL,
-    numero_tarjeta BIGINT NOT NULL,
+    numero_tarjeta CHAR(16) NOT NULL,
     tipo_tarjeta VARCHAR(255) NOT NULL
 );
 

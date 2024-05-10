@@ -1,10 +1,12 @@
 package modelos;
 
+import java.math.BigInteger;
+
 public class User {
     private String email;
     private String password;
     private String cardType;
-    private int cardNumber;
+    private String cardNumber;
 
     //constructor para el login, y constructor para registrarse
 
@@ -13,7 +15,7 @@ public class User {
         this.password =  password;
     }
 
-    public User(String email, String password, String cardType, int cardNumber) {
+    public User(String email, String password, String cardType, String cardNumber) {
         this.email = email;
         this.password =  password;
         this.cardType = cardType;
@@ -30,7 +32,7 @@ public class User {
     public String getCardType() {
         return cardType;
     }
-    public int getCardNumber() {
+    public String getCardNumber() {
         return cardNumber;
     }
     public void setEmail(String email) {
@@ -42,7 +44,7 @@ public class User {
     public void setCardType(String cardType) {
         this.cardType = cardType;
     }
-    public void setCardNumber(int cardNumber) {
+    public void setCardNumber(String cardNumber) {
         this.cardNumber = cardNumber;
     }
 

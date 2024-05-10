@@ -40,7 +40,6 @@ public class UserServlet extends HttpServlet{
                     return;
                 }
                
-
             } else {
                 // Si el usuario no está logueado, redirigir a la página de registro con los datos prellenados
                 request.setAttribute("email", userEmail);
@@ -56,7 +55,7 @@ public class UserServlet extends HttpServlet{
             String cardnumber = request.getParameter("creditNumber");
             
             //añadimos el usuario a la base de datos
-            User user = new User(userEmail, password, creditType, Integer.parseInt(cardnumber));
+            User user = new User(userEmail, password, creditType, cardnumber);
             if (dao.addUser(user)==true){
                 //guardamos en la sesion el usuario
                 HttpSession session = request.getSession();

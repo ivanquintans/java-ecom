@@ -1,5 +1,6 @@
 package DAO;
 
+import java.math.BigInteger;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,7 +16,7 @@ public class DAOUsers {
         //intentamos la conexión con la base de datos
         String email = user.getEmail();
         String password = user.getPassword();
-        Integer cardnumber = user.getCardNumber();
+        String cardnumber = user.getCardNumber();
         String creditType = user.getCardType();
 
         try (Connection conexion = ConnectionManager.getConnection()) {
@@ -32,7 +33,7 @@ public class DAOUsers {
                 // Establecemos los parámetros de la consulta
                 stmt.setString(1, email);
                 stmt.setString(2, password);
-                stmt.setInt(3, cardnumber);
+                stmt.setString(3, cardnumber);
                 stmt.setString(4, creditType);
 
                 // Ejecutamos la consulta
@@ -75,7 +76,7 @@ public class DAOUsers {
                 if (rs.next()) {
                     // Obtenemos los valores de pago del usuario y se los asignamos
                     String creditType = rs.getString("tipo_tarjeta");
-                    Integer cardnumber = rs.getInt("numero_tarjeta");
+                    String cardnumber = rs.getString("numero_tarjeta");
 
                     //asignamos los valores al usuario
                     user.setCardNumber(cardnumber);

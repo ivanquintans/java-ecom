@@ -18,7 +18,7 @@ public class ConnectionManager {
         }
 
         // Creamos la conexión con la base de datos
-        String url = "jdbc:postgresql://postgres-db:5432/postgres";
+        String url = "jdbc:postgresql://postgres-db:5432/tienda";
         String user = "www-data";
         String password = "tienda";
         try {

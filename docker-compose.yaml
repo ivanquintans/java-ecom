@@ -28,7 +28,11 @@ services:
         - 5432:5432
 
 volumes: 
-  postgres-db-data:
+    postgres-db-data:
+
+
+
+
 
   
       
