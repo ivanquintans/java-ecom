@@ -88,6 +88,7 @@
         Email: <input type="text" name="email"><br>
         Password: <input type="password" name="password"><br>
         <input type="submit" id= "login" value="Login">
+        <input type="hidden" name="action" value="login">
     </form>
     <a href="PagoServlet">Volver a la caja</a>
 </body>

@@ -85,11 +85,12 @@
 <body>
     <h2>Register</h1>
     <form action="UserServlet" method="post">
-        Email: <input type="text" name="email"><br>
-        Password: <input type="password" name="password"><br>
+        Email: <input type="text" name="email" value="${email}"><br>
+        Password: <input type="password" name="password" value="${password}"><br>
         Tipo de Tarjeta: <input type="text" name="creditType"><br>
         Número de Tarjeta: <input type="text" name="creditNumber"><br>
         <input type="submit" id= "register" value="Register">
+        <input type="hidden" name="action" value="register">
     </form>
     <a href="PagoServlet">Volver a la caja</a>
 </body>
