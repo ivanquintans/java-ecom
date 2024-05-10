@@ -38,6 +38,9 @@ public class UserServlet extends HttpServlet{
                     session.setAttribute("user", user);
                 }else {
                     System.out.println("Fallo a la hora de loguear el usuario en la base de datos");
+                    HttpSession session = request.getSession();
+                    session.setAttribute("error", "Error al iniciar sesión. Por favor, verifique sus credenciales.");
+                    response.sendRedirect("login.jsp");
                     return;
                 }
                
@@ -63,6 +66,10 @@ public class UserServlet extends HttpServlet{
                 session.setAttribute("user", user);
             }else{
                 System.out.println("Fallo a la hora de registrar el usuario en la base de datos");
+                //dejamos al usurio en la ventana de registro otra vez con mensaje de error al jsp
+                HttpSession session = request.getSession();
+                session.setAttribute("error", "Error al registrar el usuario. Por favor, verifique sus credenciales.");
+                response.sendRedirect("registro.jsp");
                 return;
             }
     

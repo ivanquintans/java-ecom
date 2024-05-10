@@ -80,9 +80,25 @@
         a:hover {
             background-color: #0056b3;
         }
+        #mensaje {
+            background-color: red;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            border: 2px solid black;
+            border-radius: 10px;
+            width: 50%;
+            margin: auto;
+            margin-top: 20px; 
+        }
     </style>
 </head>
 <body>
+    <!-- En caso del error, lo mostramos-->
+    <c:if test="${not empty sessionScope.error}">
+        <div id="mensaje"><c:out value="${sessionScope.error}" /></div>
+        <% session.removeAttribute("error");%>
+    </c:if>
     <h2>Login</h1>
     <form action="UserServlet" method="post">
         Email: <input type="text" name="email"><br>
