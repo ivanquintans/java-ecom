@@ -10,6 +10,11 @@ public class Order {
         this.userEmail = userEmail;
         this.amount = amount;
     }
+
+    public Order(String userEmail, Float amount) {
+        this.userEmail = userEmail;
+        this.amount = amount;
+    }
     
     //getters and setters
     public int getOrderId() {

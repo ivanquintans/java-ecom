@@ -7,6 +7,7 @@ import javax.servlet.http.*;
 
 import DAO.DAOOrders;
 import DAO.DAOUsers;
+import modelos.Order;
 import modelos.User; 
 
 public class UserServlet extends HttpServlet{
@@ -66,18 +67,18 @@ public class UserServlet extends HttpServlet{
             }
     
         }
+        HttpSession session = request.getSession();
 
         //en ambos casos antes de redirigir a la página de confirmación de la compra, es necesario guardar el pedido en la base de datos
-        daoOrders.addOrder(, null)
-
+        //creamos el objeto de la clase order
+        User user = (User) session.getAttribute("user");
+        // Obtener el valor total del carrito desde la sesión y convertirlo a float
+        Float amount = Float.parseFloat(session.getAttribute("totalCarrito").toString());   
+        Order order = new Order(user.getEmail(),amount);
+        daoOrders.addOrder(order); //añadimos el pedido a la base de datos
 
         //despues de esto realizamos la confirmación de la compra
         response.sendRedirect("confirmar_compra.jsp");
-
-
-
-
-       
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException{

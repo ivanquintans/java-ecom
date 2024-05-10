@@ -5,19 +5,21 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import modelos.Order;
+
 public class DAOOrders {
     private static final String nombre_tabla = "orders";
 
     //añadimos un order a la base de datos
-    public boolean addOrder(String userEmail, Float orderAmount) {
+    public boolean addOrder(Order order) {
         //intentamos la conexión con la base de datos
         try (Connection conexion = ConnectionManager.getConnection()) {
            // Creamos la consulta SQL parametrizada
             String sql = "INSERT INTO " + nombre_tabla + " (user_email, amount) VALUES (?, ?)";
             try (PreparedStatement stmt = conexion.prepareStatement(sql)) {
                 // Establecemos los parámetros de la consulta
-                stmt.setString(1, userEmail);
-                stmt.setFloat(2, orderAmount);
+                stmt.setString(1, order.getUserEmail());
+                stmt.setFloat(2, order.getAmount());
                 // Ejecutamos la consulta
                 int filasInsertadas = stmt.executeUpdate();
                 // Comprobamos si se insertó correctamente
