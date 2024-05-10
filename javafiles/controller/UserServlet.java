@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.*;
+import java.text.DecimalFormat;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -73,7 +74,12 @@ public class UserServlet extends HttpServlet{
         //creamos el objeto de la clase order
         User user = (User) session.getAttribute("user");
         // Obtener el valor total del carrito desde la sesión y convertirlo a float
-        Float amount = Float.parseFloat(session.getAttribute("totalCarrito").toString());   
+        
+        String totalCarritoStr = session.getAttribute("totalCarrito").toString();
+        Float amountNoFormat = Float.parseFloat(totalCarritoStr);
+        DecimalFormat format = new DecimalFormat("#.##");
+        Float amount = Float.parseFloat(format.format(amountNoFormat));
+
         Order order = new Order(user.getEmail(),amount);
         daoOrders.addOrder(order); //añadimos el pedido a la base de datos
 

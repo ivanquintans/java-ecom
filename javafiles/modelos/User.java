@@ -1,6 +1,5 @@
 package modelos;
 
-import java.math.BigInteger;
 
 public class User {
     private String email;

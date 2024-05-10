@@ -111,7 +111,7 @@
             <label>Total a Pagar:</label>
             <p><fmt:formatNumber value="${totalCarrito}" maxFractionDigits="2" /></p>
         </div>
-        <form action="ProcesarPagoServlet" method="post">
+        <form action="ConfirmarServlet" method="post">
             <!-- Aquí puedes agregar más campos si es necesario -->
             <input type="submit" value="Volver a la seleccion de CDs">
             <input type="hidden" name="action" value="pagar">

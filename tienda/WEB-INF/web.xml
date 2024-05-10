@@ -31,4 +31,14 @@
         <url-pattern>/UserServlet</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>Confirmar</servlet-name>
+        <servlet-class>controller.ConfirmarServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Confirmar</servlet-name>
+        <url-pattern>/ConfirmarServlet</url-pattern>
+    </servlet-mapping>
+
 </web-app>

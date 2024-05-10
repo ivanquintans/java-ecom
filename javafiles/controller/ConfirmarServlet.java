@@ -10,23 +10,17 @@ import modelos.Carrito;
 public class ConfirmarServlet extends HttpServlet {
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException{
-        //si el usuario quiere pagar en primer lugar debemos de hacer el login de este para que pueda pagar
-        
-        //si el usuario paga borro todo el carrito de la sesiión y lo mandamos a la página de inicio
+    
+        //despues de la confirmacion de la compra, borramos el carrito de la sesion, y los datos del usuario
         HttpSession session = request.getSession();
         Carrito carrito = (Carrito) session.getAttribute("carrito");
         if (carrito!= null) {
             carrito.removeCarrito();
         }
         session.removeAttribute("carrito");
+        session.removeAttribute("user");
         //lo mandamos a la pagina de inicio
         response.sendRedirect("index.html?PagoEfectuado=true");
     }
-    
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException{
-        // Incluir la página del carrito
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/pago.jsp");
-        dispatcher.include(request, response);
-    }
-    
+ 
 }
