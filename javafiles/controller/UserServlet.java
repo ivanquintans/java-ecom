@@ -66,6 +66,7 @@ public class UserServlet extends HttpServlet{
             }
     
         }
+
         HttpSession session = request.getSession();
 
         //en ambos casos antes de redirigir a la página de confirmación de la compra, es necesario guardar el pedido en la base de datos
@@ -77,7 +78,7 @@ public class UserServlet extends HttpServlet{
         daoOrders.addOrder(order); //añadimos el pedido a la base de datos
 
         //despues de esto realizamos la confirmación de la compra
-        response.sendRedirect("confirmar_compra.jsp");
+        response.sendRedirect("confirmarCompra.jsp");
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException{
