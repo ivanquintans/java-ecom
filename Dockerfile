@@ -5,10 +5,14 @@ COPY ./context.xml ./conf/context.xml
 COPY ./tienda ./webapps/tienda
 COPY ./javafiles ./webapps/tienda/javafiles
 
-
 WORKDIR /usr/local/tomcat/webapps/tienda
 RUN mkdir -p ./WEB-INF/classes
 RUN javac -cp ./WEB-INF/lib/servlet-api.jar:./WEB-INF/lib/postgresql-42.7.3.jar -d ./WEB-INF/classes ./javafiles/**/*.java 
+
+RUN jar -cvf proyecto_Ivan_QuintansGonzalez.war . 
+RUN mv proyecto_Ivan_QuintansGonzalez.war ..
+WORKDIR /usr/local/tomcat/webapps
+RUN rm -rf ./tienda
 
 WORKDIR /usr/local/tomcat
 EXPOSE 8080
