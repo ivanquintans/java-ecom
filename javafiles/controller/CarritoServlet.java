@@ -43,11 +43,17 @@ public class CarritoServlet extends HttpServlet{
                 session.setAttribute("carrito", carrito);
             }
 
-            // Agregar el artículo al carrito de la compra
-            carrito.addItem(currentCD, cantidad);
+            // Agregar el artículo al carrito de la compra'
+            if (cantidad > 0){
+                carrito.addItem(currentCD, cantidad);
+                //redirigimos de vuelta el usuario a la pagina index.html
+                response.sendRedirect("index.html?itemAdded=true");
+            }else{
+                response.sendRedirect("index.html?itemAdded=false");
+            }
+            
 
-            //redirigimos de vuelta el usuario a la pagina index.html
-            response.sendRedirect("index.html?itemAdded=true");
+            
             
         }
     }

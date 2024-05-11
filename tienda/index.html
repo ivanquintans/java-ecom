@@ -5,11 +5,10 @@
       <title>Musica para DAA</title>
       <style>
         .mensaje {
-            background-color: #4CAF50;
             color: white;
             padding: 10px;
             text-align: center;
-            border: 2px solid #4CAF50;
+            border: 2px solid;
             border-radius: 10px;
             width: 50%;
             margin: auto;
@@ -47,7 +46,15 @@
             if (urlParams.has('itemAdded')) {
                 var mensajeDiv = document.createElement("div");
                 mensajeDiv.className = "mensaje";
-                mensajeDiv.innerHTML = "¡El artículo se ha añadido al carrito!";
+                valor = urlParams.get('itemAdded');
+                console.log(valor);
+                if (valor === 'true' || parseInt(valor) === 1) {
+                    mensajeDiv.innerHTML = "¡El articulo se ha añadido al carrito!";
+                    mensajeDiv.style.backgroundColor = "lightgreen"; 
+                }else{
+                    mensajeDiv.innerHTML = "ERROR AL AÑADIR: La cantidad introducida tiene que ser mayor que cero!";
+                    mensajeDiv.style.backgroundColor = "red"; 
+                }
                 document.body.appendChild(mensajeDiv);
 
                 // Ocultar el mensaje después de 5 segundos (5000 milisegundos)
